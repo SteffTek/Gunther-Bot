@@ -19,5 +19,5 @@ class spamProtect:
         if shouldBan == True:
             self.__main.banManager.banID(str(message.author.id))
             print(message.author.name + " banned for spam!")
-            await message.author.send("Du wurdest wegen schlechtem Benehmens aus dem Bot-System ausgeschlossen! SCHÄM DICH!")
+            await message.author.send("You got auto-banned from the Chatbot for spamming.")
 

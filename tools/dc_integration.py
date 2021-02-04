@@ -281,7 +281,7 @@ class dc_bot:
                         await message.add_reaction("❌")
                         await message.channel.guild.get_channel(self.__logchannel).send(message.author.name + "#" + message.author.discriminator + " used banned word in message: \nWords: " + str(formattedMessage.get("words")) + "\n\nMessage:" + message.content)
                     if formattedMessage.get("fun") == True:
-                        print("Es wurde F.U.N. ausgeführt!")
+                        print("F.U.N. Executed!")
                     return
 
                 # Formatted Message is Valid
