@@ -27,7 +27,8 @@ class dc_bot:
         policy = asyncio.get_event_loop_policy()
         policy._loop_factory = asyncio.SelectorEventLoop
 
-        self.__wss = wss.WSS(self)
+        if settings.enable_wss:
+            self.__wss = wss.WSS(self)
 
         self.emojiMap = {}
         self.__loadEmojiMap()
