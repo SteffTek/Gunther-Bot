@@ -29,8 +29,8 @@ class __main__:
             ]
         )
 
+        #CORPUS TRAINER EXAMPLE
         trainer = ChatterBotCorpusTrainer(self.__my_bot)
-
         #trainer.train(
             #"chatterbot.corpus.german"
         #)
@@ -49,7 +49,10 @@ class __main__:
         self.dc_bot = dc_integration.dc_bot(self, self.__my_bot, self.__TOKEN)
 
         ################LEARNING#################
-
+        """
+            This is literally never executed
+            and just here for debugging purposes.
+        """
         ##self.learning = learning.learning(self, self.__my_bot)
 
 

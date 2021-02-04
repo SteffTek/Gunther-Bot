@@ -21,7 +21,10 @@ whitelisted_websites = [
     "tenor.com"
 ]
 
-#Other Settings
-mongo_db_database = ""
+#MongoDB Settings
+"""Auth String for Mongo DB Server"""
+mongo_db_database = "mongodb://USER:PASSWD@SERVER:PORT/DB"
+
+#Discord Instance Settings
 discord_token = ""
 discord_command_prefix = "!cb"

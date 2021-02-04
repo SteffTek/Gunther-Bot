@@ -1,8 +1,11 @@
 # ![alt text](https://media.discordapp.net/attachments/744511217401331774/806784199990050816/523acefa60235a198c1f910a5fa6d4e9.png?width=64&height=64 "Gunther Image") Gunther Bot
 ## Discord Chatbot with AI
 
-Please visit [This Repo](https://github.com/SteffTek/Gunther-Voice) for Gunther Voice - A voice chat Client for Gunther
+Please visit [This Repo](https://github.com/SteffTek/Gunther-Voice) for Gunther Voice - A voice chat bot for Gunther.
 
+Gunther Bot uses *advanced Algorithms™* to deliver a unique Discord Chat experience. This bot is __at this stage__ only meant to be deployed to a single Discord Guild.
+
+You need to train the bot with your own Data or usage of [Chatterbot Corpus Data](https://chatterbot.readthedocs.io/en/stable/corpus.html) to train it yourself. An example of training with corpus data can be found at the ```bot.py```.
 ___
 
 ## Prerequisites
@@ -10,6 +13,7 @@ ___
 | --------------- |:-----------------:|
 | Python          | 3.7.9       |
 | PIP             | 21          |
+| MongoDB         | Any Version |
 
 | Python Module        | Version           |
 | --------------- |:-----------------:|
@@ -46,8 +50,11 @@ whitelisted_websites = [
     "tenor.com"
 ]
 
-#Other Settings
-mongo_db_database = ""
+#MongoDB Settings
+"""Auth String for Mongo DB Server"""
+mongo_db_database = "mongodb://USER:PASSWD@SERVER:PORT/DB"
+
+#Discord Instance Settings
 discord_token = ""
 discord_command_prefix = "!cb"
 ```
