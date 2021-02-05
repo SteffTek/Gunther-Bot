@@ -1,4 +1,4 @@
-# ![alt text](https://media.discordapp.net/attachments/744511217401331774/806784199990050816/523acefa60235a198c1f910a5fa6d4e9.png?width=64&height=64 "Gunther Image") Gunther Bot
+# ![alt text](https://raw.githubusercontent.com/SteffTek/Gunther-Bot/main/avatar.png "Gunther Image") Gunther Bot
 ## Discord Chatbot with AI
 
 Please visit [This Repo](https://github.com/SteffTek/Gunther-Voice) for Gunther Voice - A voice chat bot for Gunther.
