@@ -1,3 +1,5 @@
+import os
+
 from chatterbot import ChatBot
 from chatterbot.trainers import ListTrainer
 from chatterbot.trainers import ChatterBotCorpusTrainer
@@ -14,17 +16,25 @@ class __main__:
     def __init__ (self):
         print("Botter Initialized!")
 
+        ###############UTILS################
+        try:
+            os.makedirs("user_audio")
+        except FileExistsError as e:
+            print("Dir user_audio initialized...")
+
         ###############BOTCREATION################
 
+        should_learn = not settings.enable_learning
+        print("Is learning disabled: " + str(should_learn))
+
         self.__my_bot = ChatBot(name='PyBot',
-            read_only=True,
+            read_only=should_learn,
             storage_adapter='chatterbot.storage.MongoDatabaseAdapter',
             database_uri=settings.mongo_db_database,
             logic_adapters=[
                 {
                     "import_path": "chatterbot.logic.BestMatch",
-                    "statement_comparison_function":"chatterbot.comparisons.LevenshteinDistance",
-                    "response_selection_method":"chatterbot.response_selection.get_first_response"
+                    "statement_comparison_function":"chatterbot.comparisons.LevenshteinDistance"
                 }
             ]
         )

@@ -298,6 +298,8 @@ class dc_bot:
                     if isinstance(formattedMessage, dict):
                         return
 
+                    print(str(formattedMessage))
+
                     if not self.client.user in message.mentions:
                         self.client.loop.create_task(self.sendResponse(formattedMessage, message, ownChannel=False))
                     else:

@@ -1,7 +1,7 @@
 # ![alt text](https://raw.githubusercontent.com/SteffTek/Gunther-Bot/main/avatar.png "Gunther Image") Gunther Bot
 ## Discord Chatbot with AI
 
-Please visit [This Repo](https://github.com/SteffTek/Gunther-Voice) for Gunther Voice - A voice chat bot for Gunther.
+Please visit [this Repo](https://github.com/SteffTek/Gunther-Voice) for Gunther Voice - A voice chat bot for Gunther.
 
 Gunther Bot uses *advanced Algorithms™* to deliver a unique Discord Chat experience. This bot is __at this stage__ only meant to be deployed to a single Discord Guild.
 

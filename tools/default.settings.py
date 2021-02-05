@@ -6,6 +6,9 @@ spam_time = 10
 wss_port = 8765
 enable_wss = False
 
+#Should the bot Learn from Conversations
+enable_learning = True
+
 #Moderation Settings
 mod_role = ""
 chatchannel = 0

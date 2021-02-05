@@ -51,7 +51,6 @@ class WSS:
             data = bytearray(message["binary"]["data"])
 
             audio_path = os.path.join("user_audio", message["author"]["userID"] + ".wav")
-            os.makedirs(audio_path)
 
             with wave.open(audio_path, "wb") as out_f:
                 out_f.setnchannels(2)
@@ -74,6 +73,7 @@ class WSS:
             await websocket.send(dump)
 
         async def sendResponse(websocket, data, original):
+            print(str(data))
             statement = self.dc_bot.bot.get_response(data)
             msg = statement.text
             print("WS < ", msg, "; Confidence: ", statement.confidence)
