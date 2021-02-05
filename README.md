@@ -7,7 +7,8 @@ Gunther Bot uses *advanced Algorithms™* to deliver a unique Discord Chat exper
 
 You need to train the bot with your own Data or usage of [Chatterbot Corpus Data](https://chatterbot.readthedocs.io/en/stable/corpus.html) to train it yourself. An example of training with corpus data can be found at the ```bot.py```.
 ___
-
+## Click for [Releases](https://github.com/SteffTek/Gunther-Bot/releases)
+___
 ## Prerequisites
 | Programm        | Version           |
 | --------------- |:-----------------:|
