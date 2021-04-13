@@ -6,7 +6,7 @@ Please visit [this Repo](https://github.com/SteffTek/Gunther-Voice) for Gunther 
 Gunther Bot uses *advanced Algorithms™* to deliver a unique Discord Chat experience. This bot is __at this stage__ only meant to be deployed to a single Discord Guild.
 
 You need to train the bot with your own Data or usage of [Chatterbot Corpus Data](https://chatterbot.readthedocs.io/en/stable/corpus.html) to train it yourself. An example of training with corpus data can be found at the ```bot.py```.
-___
+
 ## Click for [Releases](https://github.com/SteffTek/Gunther-Bot/releases)
 ___
 ## Prerequisites

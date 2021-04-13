@@ -130,7 +130,7 @@ class dc_bot:
 
         return string
 
-    async def sendResponse(self, string, message, ownChannel = True, isPrivate = False):
+    def sendResponse(self, string, message, ownChannel = True, isPrivate = False):
         print("DC > ", string)
         statement = self.bot.get_response(string)
         print("DC < ", str(statement), "; Confidence: " , statement.confidence)
@@ -157,7 +157,10 @@ class dc_bot:
 
         msg = msg.format(message)
 
-        sent_msg = await message.channel.send(msg)
+        self.client.loop.create_task(self.sendMessage(message, msg, statement))
+
+    async def sendMessage(self, message, string, statement):
+        sent_msg = await message.channel.send(string)
 
         if statement.confidence < 0.2:
             await sent_msg.add_reaction("💢")
@@ -239,7 +242,8 @@ class dc_bot:
 
                 # Formatted Message is Valid
                 #await message.channel.send(self.getResponse(formattedMessage, message, True))
-                self.client.loop.create_task(self.sendResponse(formattedMessage, message, True))
+                #self.client.loop.create_task(self.sendResponse(formattedMessage, message, True))
+                threading.Thread(target=self.sendResponse, args=(formattedMessage, message, True)).start()
                 return
 
             # Only respond in right channel
@@ -286,7 +290,8 @@ class dc_bot:
 
                 # Formatted Message is Valid
                 #await message.channel.send(self.getResponse(formattedMessage, message))
-                self.client.loop.create_task(self.sendResponse(formattedMessage, message, ownChannel=True))
+                #self.client.loop.create_task(self.sendResponse(formattedMessage, message, ownChannel=True))
+                threading.Thread(target=self.sendResponse, args=(formattedMessage, message, True)).start()
                 return
 
             else:
@@ -301,9 +306,11 @@ class dc_bot:
                     print(str(formattedMessage))
 
                     if not self.client.user in message.mentions:
-                        self.client.loop.create_task(self.sendResponse(formattedMessage, message, ownChannel=False))
+                        #self.client.loop.create_task(self.sendResponse(formattedMessage, message, ownChannel=False))
+                        threading.Thread(target=self.sendResponse, args=(formattedMessage, message, False)).start()
                     else:
-                        self.client.loop.create_task(self.sendResponse(formattedMessage, message, ownChannel=True))
+                        threading.Thread(target=self.sendResponse, args=(formattedMessage, message, True)).start()
+                        #self.client.loop.create_task(self.sendResponse(formattedMessage, message, ownChannel=True))
 
 
             if not self.client.user in message.mentions:

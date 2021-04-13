@@ -25,7 +25,8 @@ class WSS:
                 message = json.loads(jsn)
 
                 if "binary" in message:
-                    loop.create_task(speechToText(websocket, message))
+                    #loop.create_task(speechToText(websocket, message))
+                    threading.Thread(target=self.speechToText, args=(websocket, message)).start()
                 else:
                     print("WS > " + message["content"])
                     formatted = await formatMessage(message["content"])
@@ -36,7 +37,8 @@ class WSS:
                         print("WS ! Banned Words > ", str(formatted))
                         return
 
-                    loop.create_task(sendResponse(websocket, formatted, message))
+                    #loop.create_task(sendResponse(websocket, formatted, message))
+                    threading.Thread(target=self.sendResponse, args=(websocket, formatted, message)).start()
 
         async def formatMessage(string):
             # Bad Word Check
@@ -46,7 +48,7 @@ class WSS:
 
             return string
 
-        async def speechToText(websocket, message):
+        def speechToText(websocket, message):
 
             data = bytearray(message["binary"]["data"])
 
@@ -70,9 +72,9 @@ class WSS:
 
             dump = json.dumps(message)
 
-            await websocket.send(dump)
+            websocket.send(dump)
 
-        async def sendResponse(websocket, data, original):
+        def sendResponse(websocket, data, original):
             print(str(data))
             statement = self.dc_bot.bot.get_response(data)
             msg = statement.text
@@ -82,7 +84,7 @@ class WSS:
             original["confidence"] = statement.confidence
             dump = json.dumps(original)
 
-            await websocket.send(dump)
+            websocket.send(dump)
 
         def start():
             print("Starting Websocket Server...")
